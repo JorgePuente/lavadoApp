@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_icon.png",
+        "source": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_icon.png"
+    },
+    {
+        "merged": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_background_selected.png",
+        "source": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_background_selected.png"
+    },
+    {
+        "merged": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_background.png",
+        "source": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_background.png"
+    },
+    {
+        "merged": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_icon_selected.png",
+        "source": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_icon_selected.png"
+    },
+    {
+        "merged": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/com_facebook_button_like_pressed.png",
+        "source": "/Users/JoGe/Documents/IONIC/lavadoApp/platforms/android/phonegap-facebook-plugin/lavadoapp537009-FacebookLib/res/drawable-xxhdpi/com_facebook_button_like_pressed.png"
+    }
+]

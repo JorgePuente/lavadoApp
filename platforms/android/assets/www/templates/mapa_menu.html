@@ -1,0 +1,32 @@
+<ion-view>
+  <ion-content class="padding cuerpo mapa_menu">
+    
+    <img class="logo" src="img/logo.png">
+    
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Escribe la dirección" ng-model="s.address">
+      </label>
+      <span class="button-srch" ng-click="busca_direccion()">
+      	<i class="icon ion-search"></i>
+      </span>
+    </div>
+
+    <div id="map" data-tap-disabled="true"></div>
+
+    <div class="card" ng-click="getListado('servicios')">
+      <div class="item item-text-wrap">
+        <i class="icon ion-ios-list"></i> Ver Servicios
+      </div>
+    </div>
+
+    <div class="card" ng-click="getListado('paquetes')">
+      <div class="item item-text-wrap">
+        <i class="icon ion-ios-box"></i> Ver Paquetes
+      </div>
+    </div>
+
+
+
+  </ion-content>
+</ion-view>

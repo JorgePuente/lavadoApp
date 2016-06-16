@@ -1,0 +1,31 @@
+<ion-view view-title="Paquetes">
+	<ion-content class="padding cuerpo paquetes">
+
+		<img class="logo" src="img/logo.png">
+
+
+		<div id="contenedor" ng-repeat="paqu in paquetes">
+			<div class="card">
+			  <div class="item item-text-wrap">
+			    <h1>{{paqu.nombre}} <span>${{paqu.precio}}</span></h1>
+
+			    <ul>
+			    	<li ng-repeat="servicio in paqu.servicios">{{servicio.nombre}}</li>
+			    </ul>
+
+			    <button class="button button-dark">
+			      Pagar >
+			    </button>
+			  </div>
+			</div>
+
+			<!-- <div class="espacio"></div> -->
+		</div>
+<!-- 
+		    <div class="item" collection-repeat="serv in servicios">
+		    	<span class="precio">${{serv.precio}}</span> - <b>{{serv.nombre}}</b>
+
+		    </div> -->
+
+	</ion-content>
+</ion-view>

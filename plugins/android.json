@@ -1,0 +1,42 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "925550167564100",
+            "APP_NAME": "lavadoApp",
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        }
+    }
+}
