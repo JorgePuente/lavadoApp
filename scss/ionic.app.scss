@@ -1,0 +1,259 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+*/
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #848484 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+.scroll {
+	height: 100%;
+}
+
+.cuerpo {
+	background-image: url('/img/grey.png');
+	&.no-scroll {
+		overflow-y: hidden;
+	}
+	#logo-principal {
+		display: block;
+		width: 80%;
+		margin: 70px auto;
+	}
+
+	button {
+		&.facebook {
+			background-color: #3a5896;
+			color: #FFF;
+			display: block;
+			margin: 150px auto;
+			font-size: 15px;
+
+			&:hover {
+				opacity: .7;
+			}
+		}
+
+		.ion-social-facebook.custom {
+			padding: 7px 10px;
+			border: 1px solid #FFF;
+			border-radius: 3px;
+		}
+	}
+
+	.logo {
+		width: 40%;
+		display: block;
+		margin: 0 auto 15px;
+	}
+
+	&.inicio {
+		.logo {
+			margin-top: 50px;
+			margin-bottom: 70px;
+			width: 80%;
+		}
+
+		.card {
+			.item {
+				height: 75px;
+				font-size: 20px;
+				color: #525263;
+				position: relative;
+				padding-top: 28px;
+				img {
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 75px;
+				}
+			}
+		}
+	}
+
+
+	&.mapa_menu {
+		.list {
+			margin-bottom: 0;
+
+			.item {
+				width: 85%;
+				display: inline-block;
+			}
+
+			.button-srch {
+				display: inline-block;
+				width: 15%;
+				background-color: red;
+				vertical-align: top;
+				height: 46px;
+				margin-left: -3px;
+				background-color: #1fc5db;
+				text-align: center;
+				font-size: 25px;
+
+				i {
+					color: #FFF;
+					display: block;
+					margin-top: 10px;
+				}
+			}
+		}
+		#map {
+			height: 200px;
+			width: 100%;
+
+			margin-bottom: 50px;
+		}
+
+		.card {
+			.item {
+				.icon {
+					font-size: 25px;
+					float: right;
+
+					&.ion-ios-list {
+						font-size: 22px;
+					}
+				}
+			}
+		}
+	}
+
+	&.servicios {
+		height: 87%;
+		.list {
+			&.list-inset {
+				height:100%;
+				background-color:transparent;
+			}
+		}
+
+	}
+
+	&.paquetes {
+		#contenedor {
+
+			// height: 200px !important;
+
+			.card {
+				.item{
+					padding-top: 5px;
+					border-left: 3px solid #1FC5DB;
+					position: relative;
+
+					h1 {
+						font-size: 16px;
+						color: #565461;
+
+						span {
+							float: right;
+						}
+					}
+
+					ul {
+						list-style: initial;
+						list-style-type: bengali;
+						padding-left: 20px;
+						li {
+							line-height:1;
+							font-size: 14px;
+						}
+					}
+
+					button {
+						&.button {
+							font-size: 13px;
+							display: inline-block;
+							height: 20px;
+							min-height: 0;
+							line-height: 0;
+							padding: 0 5px;
+							margin-top: 10px;
+							position: absolute;
+							right: 10px;
+							bottom: 5px;
+						}
+					}
+				}
+
+			}
+
+			// .espacio {
+			// 	padding: 7px 0;
+			// }
+		}
+	}
+
+	&.historial {
+		.card {
+			.item-divider {
+				i {
+					float: right;
+					font-size: 20px;
+
+					&.ion-alert-circled {
+						color: #ECB837;
+					}
+
+					&.ion-checkmark-circled {
+						color: #7AC564;
+					}
+				}
+			}
+			.item-text-wrap {
+				padding-top: 5px;
+
+				h1 {
+					font-size: 16px;
+				}
+
+				ul {
+					list-style: initial;
+					list-style-type: bengali;
+					padding-left: 20px;
+					li {
+						line-height:1;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+
+	
+}
+.bar{
+	&.servicios {
+		background-color: rgba(31, 197, 219, 0.4);
+		border-top-color: #1fc5db;
+		.subtotal {
+			font-size: 17px;
+			color: #5A5A69;
+			margin-top: 5px;
+		}
+
+		button {
+			position: absolute;
+			right: 10px;
+		}
+	}
+}
+
+
+
