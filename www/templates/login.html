@@ -1,9 +1,14 @@
 <ion-view view-title="Login">
-  <ion-content class="padding cuerpo no-scroll">
-    <img id="logo-principal" src="img/logo.png">
+	<ion-content class="padding cuerpo no-scroll">
+		<img id="logo-principal" src="img/logo.png">
 
-    <button class="button facebook">
-    	<i class="icon ion-social-facebook custom"></i> Registrate con Facebook
-    </button>
-  </ion-content>
+		<button class="button facebook" ng-click="facebookLogin()" ng-if="!login.sesion_iniciada">
+			<i class="icon ion-social-facebook custom"></i> Registrate con Facebook
+		</button>
+
+		<button class="button entrar" ng-click="go_inicio()" ng-if="login.sesion_iniciada">
+			Entrar a la aplicación <i class="icon ion-arrow-right-a custom no-border"></i>
+		</button>
+
+	</ion-content>
 </ion-view>

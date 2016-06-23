@@ -1,0 +1,15 @@
+<ion-view view-title="Rating">
+	<ion-content class="padding cuerpo rating">
+
+		<img class="logo" src="img/logo.png">
+
+		<h1>¿Que tal te parecieron los servicios y paquetes disponibles?</h1>
+		<rating ng-model="rat.rating" max="rat.max"></rating>
+
+		<textarea placeholder=" Sugerencias o comentarios" rows="6" ng-model="rat.comment"></textarea>
+
+		<button class="button button-positive" ng-click="omitir()">Omitir comentarios</button>
+
+		<button class="button button-calm icon-left ion-ios-email" ng-click="comentar()">Comentar</button>
+	</ion-content>
+</ion-view>

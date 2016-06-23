@@ -1,0 +1,23 @@
+<ion-view view-title="Comentarios">
+	<ion-content class="padding cuerpo comentarios">
+
+		<img class="logo" src="img/logo.png">
+		
+
+		<h1>
+			Comentarios
+		</h1>
+		<div class="list">
+
+		    <a class="item item-thumbnail-left" href="#" ng-repeat="comments in com.items | orderBy:'-created'" ng-if="comments.comentario">
+		      <img data-ng-src="{{comments.createdBy.url_imagen}}">
+		      <h2>{{comments.createdBy.nombre}} <span class="stars">{{comments.calificacion}}<i class="icon ion-star"></i></span></h2>
+		      <p>{{comments.comentario}}</p>
+		    </a>
+
+		</div>
+
+		<!-- {{com.items}} -->
+
+	</ion-content>
+</ion-view>

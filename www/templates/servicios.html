@@ -4,17 +4,20 @@
 		<img class="logo" src="img/logo.png">
 		<div class="list list-inset">
 
-			<ion-checkbox collection-repeat="serv in servicios" ng-click="suma_precios(serv.checked, serv.precio)" ng-model="serv.checked" ng-checked="serv.checked">
+			<ion-checkbox collection-repeat="serv in servicios" ng-click="suma_precios(serv)" ng-model="serv.checked" ng-checked="serv.checked">
 				<span class="precio">${{serv.precio}}</span> - <b>{{serv.nombre}}</b>
 			</ion-checkbox>
 
 		</div>
 
+
+
 	</ion-content>
 	<div class="bar bar-footer bar-balanced servicios">
 		<div class="subtotal"><b>Total:</b> ${{ser.subtotal}}</div>
 
-		<button class="button button-dark" ng-if="ser.subtotal > 0">
+
+		<button class="button button-dark" ng-if="ser.subtotal > 0" ng-click="pagar_servicios()">
 			Pagar >
 		</button>
 	</div>

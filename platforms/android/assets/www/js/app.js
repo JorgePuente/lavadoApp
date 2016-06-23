@@ -5,9 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.services', 'ngCordova'])
 
-.run(function($ionicPlatform, $ionicPopup) {
+angular.module('lavadoApp', ['ionic', 'ionic.rating', 'lavadoApp.controllers', 'lavadoApp.services', 'ngCordova', 'ngCordovaOauth', 'ngCordova.plugins.nativeStorage', 'ngLodash', 'ngRoute'])
+
+.run(function($ionicPlatform, $ionicPopup, $rootScope, Pago, $route) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,23 +21,6 @@ angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.servic
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-
-    $ionicPlatform.registerBackButtonAction(function(event) {
-          $ionicPopup.alert({
-            title: 'Joge',
-            content: 'le diste pa atras'
-          });
-       if (true) { // your check here
-         $ionicPopup.confirm({
-           title: 'System warning',
-           template: 'are you sure you want to exit?'
-         }).then(function(res) {
-           if (res) {
-             ionic.Platform.exitApp();
-           }
-         })
-       }
-     }, 100);
 
   });
 })
@@ -92,6 +76,27 @@ angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.servic
       
   })
 
+  .state('confirma_pago', {
+    url : '/confirma_pago',
+    templateUrl: 'templates/confirma_pago.html',
+    controller: 'ConfirmaPagoCtrl'
+      
+  })
+
+  .state('rating', {
+    url : '/rating',
+    templateUrl: 'templates/rating.html',
+    controller: 'RatingCtrl'
+      
+  })
+
+  .state('comentarios', {
+    url : '/comentarios',
+    templateUrl: 'templates/comentarios.html',
+    controller: 'ComentariosCtrl'
+      
+  })
+
 
   // setup an abstract state for the tabs directive
     .state('tab', {
@@ -141,7 +146,9 @@ angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.servic
     }
   });
 
+
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/inicio');
+  $urlRouterProvider.otherwise('/login');
 
 });

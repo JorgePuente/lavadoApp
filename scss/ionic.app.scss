@@ -9,7 +9,7 @@ For example, you might change some of the default colors:
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
 $positive:                        #848484 !default;
-$calm:                            #11c1f3 !default;
+$calm:                            #1fc5db !default;
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
@@ -37,11 +37,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	}
 
 	button {
+
+		margin: 150px auto 0;
 		&.facebook {
 			background-color: #3a5896;
 			color: #FFF;
 			display: block;
-			margin: 150px auto;
 			font-size: 15px;
 
 			&:hover {
@@ -49,10 +50,25 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 			}
 		}
 
-		.ion-social-facebook.custom {
+		.custom {
 			padding: 7px 10px;
 			border: 1px solid #FFF;
 			border-radius: 3px;
+		}
+
+		.no-border {
+			border: none !important;
+		}
+
+		&.entrar {
+			display: block;
+			background-color: #1FC5DB;
+			color: #FFF;
+
+			&::after {
+				border: 2px solid #1EC4DB;
+				border-radius: 5px;
+			}
 		}
 	}
 
@@ -203,16 +219,30 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	&.historial {
 		.card {
 			.item-divider {
-				i {
+				.icon_container {
 					float: right;
-					font-size: 20px;
+					padding: 0 5px;
+					i {
+						font-size: 20px;
 
-					&.ion-alert-circled {
-						color: #ECB837;
-					}
+						&.ion-alert-circled {
+							color: #ECB837;
+						}
 
-					&.ion-checkmark-circled {
-						color: #7AC564;
+						&.ion-checkmark-circled {
+							color: #7AC564;
+						}
+
+						&.ion-android-camera {
+							color: #7AC564;
+							&.pendant {
+								color: #ECB837;
+							}
+							
+							&.no_picture {
+								color: #EA5757 !important;
+							}
+						}
 					}
 				}
 			}
@@ -221,17 +251,311 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 				h1 {
 					font-size: 16px;
+
+					#costo {
+						float: right;
+
+						i {
+							&.ion-close-circled {
+								color: #de6363;
+							}
+
+							&.ion-checkmark-circled {
+								color: #7AC564;
+							}
+						}
+					}
 				}
 
 				ul {
 					list-style: initial;
 					list-style-type: bengali;
 					padding-left: 20px;
+					margin-bottom: 20px;
 					li {
 						line-height:1;
 						font-size: 14px;
 					}
 				}
+
+				.image_wraper {
+					width: 100%;
+
+					img {
+						width: 40%;
+					}
+				}
+
+				.comments_wraper {
+					margin-top: 15px;
+					.calificacion {
+						color: #464654;
+						font-weight: bold;
+
+						i {
+							color: #c7c707;
+							font-size: 15px;
+						}
+					}
+				}
+
+				.button_atender {
+					font-size: 14px;
+					background-color: #1FC5DB;
+					padding: 3px 7px;
+					border-radius: 3px;
+					color: white;
+					font-weight: bold;
+					margin-top: 10px;
+					display: inline-block;
+					float: right;
+					margin-bottom: 10px;
+				}
+
+				.rechazado {
+					font-size: 14px;
+					color: #EA5757;
+					float: right;
+					margin-bottom: 10px;
+					font-weight: bold;
+				}
+
+				.atendido {
+					font-size: 14px;
+					color: #50b540;
+					font-weight: bold;
+					float: right;
+					margin-bottom: 10px;
+				}
+
+				.sin_atender {
+					font-size: 14px;
+					color: #ccc;
+					font-weight: bold;
+					float: right;
+					margin-bottom: 10px;
+				}
+			}
+		}
+
+		#no_activity {
+			color: #40414a;
+			text-align: center;
+			font-size: 17px;
+			font-weight: bold;
+			margin-top: 50px;
+		}
+	}
+
+	&.comentarios {
+		h1 {
+			font-size: 17px;
+			color: #4a4a56;
+		}
+		.list {
+			margin-bottom: 40px;
+
+			h2 {
+				font-size: 15px;
+
+				.stars {
+					float: right;
+					font-size: 13px;
+
+					i {
+						color: #b5b927;
+					}
+				}
+			}
+		
+		}
+	}
+
+	&.rating {
+		text-align: center;
+		h1 {
+			font-size: 17px;
+			text-align: center;
+			color: #565461;
+		}
+		ul {
+			margin: 0 auto;
+			display: table;
+			
+			&.rating {
+				li {
+					display: inline;
+					border: 0px;
+					background: none;
+					padding: 5px 10px;
+
+					i {
+						font-size: 40px;
+						color: #ece135;
+					}
+				}
+			}
+		}
+
+		textarea {
+			margin-top: 25px;
+			width: 100%;
+			box-shadow: 1px 1px 1px #ccc;
+			padding: 7px;
+		}
+
+		button {
+			margin-top: 25px;
+		}
+	}
+
+	&.pago {
+		table, th, td {
+		    border-bottom: 1px solid #d4caca;
+		    border-collapse: collapse;
+		    color: #464654;
+		}
+		th, td {
+		    padding: 5px;
+		    text-align: left;
+
+		}
+		table {
+			tr:nth-child(even) {
+			    background-color: #fff;
+			}
+		} 
+
+		table {
+			box-shadow: 2px 2px 2px #cac9c9;
+			width:100%;
+			margin-bottom: 20px;
+			tr:nth-child(odd) {
+				background-color:#fff;
+			}
+
+			th {
+			    background-color: #1fc5db;
+			    color: white;
+			    font-weight: bold;
+			    text-transform: uppercase;
+			}
+
+			tr {
+				&#last {
+					font-weight: bold;
+					font-size: 16px;
+				}
+				td {
+					&#total_ {
+						text-align: right;
+					}
+				}
+			}
+		}
+
+		#discount {
+			color: #464654;
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 10px;
+			margin-bottom: 15px;
+			.toggle {
+				float: right;
+			}
+
+			#picture {
+				position: relative;
+				button {
+					margin: 0;
+				}
+
+				i {
+					position: absolute;
+					right: 15px;
+					font-size: 25px;
+					top: 10px;
+
+					&.ion-alert-circled {
+						color: #ffc900;
+					}
+
+					&.ion-checkmark-circled {
+						color: #5ebb5e;
+					}
+				}
+
+			}
+
+			#picture_display {
+				img {
+					&#imagen_antes {
+						width: 100px;
+						height: 100px;
+						margin: 0 auto;
+						display: block;
+					}
+				}
+				
+			}
+
+		}
+		
+		#pagar {
+
+			padding-bottom: 35px;
+			.item-radio {
+				display: inline-block;
+				width: 50%;
+			}
+
+			h1 {
+				font-size: 17px;
+				color: #464654;
+			}
+
+			.ya_registradas {
+				margin-top: 5px;
+				display: inline-block;
+				color: #1FC5DB;
+				font-weight: bold;
+				text-transform: uppercase;
+				&:first-child{
+					margin-top: 10px;
+				}
+			}
+
+			h2 {
+				font-size: 15px;
+				color: #464654;
+				font-weight: normal;
+				margin-bottom: 5px;
+
+
+				&:first-child {
+					margin-top: 15px;
+				}
+			}
+
+			input {
+				display:block;
+				width:100%;
+				font-size:17px;padding:5px;
+				margin-bottom: 10px;
+				border: 1px solid #ccc;
+			}
+
+			.input-container {
+				width: 40%;
+				display: inline-block;
+
+				&.right {
+					float: right;
+				}
+			}
+
+			button {
+				display: block;
+				margin: 15px auto;
 			}
 		}
 	}
@@ -255,5 +579,46 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	}
 }
 
+div[title='Dejar de dibujar'] {
+	display: none;
+}
+
+.transparent {
+  background: transparent !important;
+
+  img {
+  	width: 90%;
+  }
+}
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) {
+  .active .modal-backdrop-bg {
+    opacity: .5;
+  }
+  .modal-backdrop-bg {
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0;
+  }
+}
 
 

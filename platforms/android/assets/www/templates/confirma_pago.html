@@ -1,0 +1,121 @@
+<ion-view view-title="Confirmación de pago">
+	<ion-content class="padding cuerpo pago">
+
+		<div> <!-- ng-if="pago.a_pagar.length > 0" -->
+			<img class="logo" src="img/logo.png">
+			
+			<table>
+			  <tr>
+			    <th>Pedido</th>
+			    <th>Costo</th>
+			  </tr>
+			  <tr ng-repeat="paga in pago.a_pagar">
+			    <td>{{paga.nombre}}</td>
+			    <td ng-init="pago.total = pago.total + paga.precio">${{paga.precio}}</td>
+			  </tr>
+			  <tr id="last" ng-if="!data.descuento">
+			    <td id="total_">TOTAL</td>
+			    <td>${{pago.total}}</td>
+			  </tr>
+			  <tr id="last" ng-if="data.descuento">
+			    <td id="total_">Subtotal</td>
+			    <td>${{pago.total}}</td>
+			  </tr>
+			  <tr id="last" ng-if="data.descuento">
+			    <td id="total_">Descuento 10%</td>
+			    <td>${{pago.total * .1}}</td>
+			  </tr>
+			  <tr id="last" ng-if="data.descuento">
+			    <td id="total_">TOTAL</td>
+			    <td>${{pago.total * .9}}</td>
+			  </tr>
+			</table>
+
+
+			<div id="discount">
+				<div class="row">
+					<div class="col col-75">
+						Deseo agregar foto del antes/despues para obtener un 10% de descuento en mi proxima compra
+					</div>
+					<div class="col col-25">
+						<label class="toggle toggle-calm">
+							<input ng-model="pago.discount" type="checkbox">
+							<div class="track">
+								<div class="handle"></div>
+							</div>
+						</label>
+					</div>
+				</div>
+
+				<div id="picture" ng-if="pago.discount">
+					<button class="button button-calm icon-left ion-android-camera" ng-click="tomar_foto()">{{pago.image_src == '' ? 'Tomar Foto' : 'Cambiar imagen'}}</button>
+
+					<i class="icon ion-alert-circled" ng-if="pago.image_src == ''"></i>
+					<i class="icon ion-checkmark-circled" ng-if="pago.image_src != ''"></i>
+
+				</div>
+
+				<div id="picture_display" ng-if="pago.image_src != '' && pago.discount">
+					<img id="imagen_antes" data-ng-src="{{pago.image_src}}" ng-if="pago.image_src != ''">
+					
+				</div>
+			</div>
+
+			<div id="pagar">
+				<h1>Forma de pago</h1>
+
+				<!-- {{pago.a_pagar}} -->
+				<ion-radio ng-model="pago.tipo_pago" ng-value="'tarjeta'">Tarjeta</ion-radio>
+	  			<ion-radio ng-model="pago.tipo_pago" ng-value="'efectivo'">Efectivo</ion-radio>
+
+	  				<div id="tarjeta" ng-if="pago.tipo_pago == 'tarjeta'">
+
+	  					<h2>Número de Teléfono</h2>
+	  					<input placeholder="6181112233" ng-model="data.phone" limit-to="10" type="number"></input>
+
+	  					<span class="ya_registradas" ng-repeat="tarj in pago.tarjetas" ng-click="pago.procesar_existente(tarj.id, tarj.card_number)">Pagar con mi tarjeta **** {{tarj.card_number}}</span>
+
+	  					<form id="payment-form">
+
+			  				<h2>Nombre del titular</h2>
+			  				<input placeholder="Como aparece en la tarjeta" data-openpay-card="holder_name" ng-model="data.usuario"></input>
+
+			  				<h2>Número de Tarjeta</h2>
+			  				<input placeholder="1111222233334444" data-openpay-card="card_number" ng-model="data.card" limit-to="16" type="number"></input>
+
+
+			  				<div class="input-container">
+				  				<h2>Año</h2>
+				  				<input placeholder="YY" data-openpay-card="expiration_year" ng-model="data.exp_y" limit-to="2" type="number"></input>
+			  				</div>
+
+			  				<div class="input-container right">
+				  				<h2>Mes</h2>
+				  				<input placeholder="MM" data-openpay-card="expiration_month" ng-model="data.exp_m" limit-to="2" type="number"></input>
+				  			</div>
+
+			  				<div class="input-container">
+				  				<h2>Código Seguridad</h2>
+				  				<input placeholder="123" data-openpay-card="cvv2" ng-model="data.ccv" limit-to="3" type="number"></input>
+				  			</div>
+
+				  			<button id="pay-button" class="button button-positive icon-left ion-lock-combination" ng-click="pago.procesar_pago($event)">Procesar pago</button>
+
+				  			<input id="deviceIdHiddenFieldName" style="display:none;"></input>
+							<input id="token_id" style="display:none;" name="token_id" id="token_id"></input>
+				  		</form>
+	  				</div>
+
+	  				<div id="efectivo" ng-if="pago.tipo_pago == 'efectivo'">
+
+	  					<h2>Número de Teléfono</h2>
+	  					<input placeholder="6181112233" ng-model="data.phone" limit-to="10" type="number"></input>
+
+	  					<button class="button button-positive icon-left ion-cash" ng-click="pago_efectivo()">Hacer pedido</button>
+	  				</div>
+			</div>	
+
+		</div>
+
+	</ion-content>
+</ion-view>

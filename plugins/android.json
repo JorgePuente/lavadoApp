@@ -32,6 +32,15 @@
             "APP_ID": "925550167564100",
             "APP_NAME": "lavadoApp",
             "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.lavadoapp537009"
         }
     },
     "dependent_plugins": {

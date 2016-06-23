@@ -3,30 +3,69 @@
 
 		<img class="logo" src="img/logo.png">
 		
-		<div class="card">
+		<div class="card" ng-repeat="hist in hs.historial | orderBy:'-created'">
 			<div class="item item-divider">
-				17/08/2016 14:05 <i class="icon ion-checkmark-circled"></i>	<!-- <i class="icon ion-alert-circled"></i> -->
+				{{ hist.created | date:'short'}} 
+				<!-- <i class="icon ion-checkmark-circled"></i> --> 
+				<!-- <i class="icon ion-alert-circled"></i> -->
+				<span class="icon_container" ng-if="hist.antes != ''" ng-click="handling_image(hist._id, hist.despues)">
+					<i class="icon ion-android-camera" ng-class="[{ pendant : hist.despues == undefined, no_picture : hist.despues == 'no_foto'}]"></i>
+				</span>
 			</div>
 			<div class="item item-text-wrap">
-				<h1>Paquete</h1>
-				<p>Paquete 1</p>
+				<h1>{{hist.tipo_compra | capitalize}}
+					<span id="costo">${{hist.costo}} 
+					<!-- <i class="icon ion-close-circled"></i></span> -->
+					<!-- <i class="icon" ng-class="[{ 'ion-checkmark-circled' : hist.pagado, 'ion-close-circled' : !hist.pagado}]"></i> -->
+				</h1>
+				<p ng-if="hist.tipo_compra == 'paquete'">{{hist.compra.paquetes[0].nombre}}</p>
+				<ul ng-if="hist.tipo_compra == 'servicio'">
+					<li ng-repeat="serv in hist.compra.servicios">{{serv.nombre}}</li>
+				</ul>
+
+				<div class="image_wraper" ng-if="hist.antes != ''">
+					<img id="antes" data-ng-src="{{hist.antes}}" ng-click="show_picture(hist.antes)">
+					<img id="despues" data-ng-src="{{hist.despues}}" ng-if="hist.despues != '' && hist.despues != 'no_foto'" ng-click="show_picture(hist.despues)">
+				</div>
+
+				<div class="comments_wraper" ng-if="hist.calificacion || hist.comentario">
+					<p class="calificacion" ng-if="hist.calificacion">{{hist.calificacion}} <i class="icon ion-star"></i></p>
+					<p class="comentario" ng-if="hist.comentario">{{hist.comentario}}</p>
+				</div>
+
+				<span class="rechazado" ng-if="hist.rechazado">Rechazado <i class="icon ion-close"></i></span>
+
+				<span class="atendido" ng-if="!hist.rechazado && hist.confirmada">Atendido <i class="icon ion-checkmark"></i></span>
+
+				<span class="sin_atender" ng-if="!hist.rechazado && !hist.confirmada">Sin Atender</span>
+
 
 			</div>
+		
 		</div>
 
-		<div class="card">
+
+
+
+		<p ng-if="hs.historial.length == 0" id="no_activity">Sin actividad registrada</p>
+
+		<!-- <div class="card">
 			<div class="item item-divider">
 				17/08/2016 17:05 <i class="icon ion-alert-circled"></i>
 			</div>
 			<div class="item item-text-wrap">
 				<h1>Servicios</h1>
-				<ul>
-					<li>Lavado de Carrocería</li>
-					<li>Aspirado de interiores</li>
-				</ul>
 
 			</div>
-		</div>
+		</div> -->
 
+		<!-- {{hs.historial}} -->
+		<script id="image-modal.html" type="text/ng-template">
+              <div class="modal image-modal transparent" ng-click="closeModal()">
+                  <ion-pane class="transparent">
+                     <img ng-src="{{hs.image_src}}" class="fullscreen-image"/>
+                  </ion-pane>
+              </div>
+          </script>
 	</ion-content>
 </ion-view>

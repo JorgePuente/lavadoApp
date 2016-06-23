@@ -5,9 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.services', 'ngCordova'])
 
-.run(function($ionicPlatform) {
+angular.module('lavadoApp', ['ionic', 'ionic.rating', 'lavadoApp.controllers', 'lavadoApp.services', 'ngCordova', 'ngCordovaOauth', 'ngCordova.plugins.nativeStorage', 'ngLodash', 'ngRoute'])
+
+.run(function($ionicPlatform, $ionicPopup, $rootScope, Pago, $route) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,10 +21,11 @@ angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.servic
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $cordovaFacebookProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -46,6 +48,13 @@ angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.servic
       
   })
 
+  .state('historial', {
+    url : '/historial',
+    templateUrl: 'templates/historial.html',
+    controller: 'HistorialCtrl'
+      
+  })
+
   .state('mapa_menu', {
     url : '/map',
     templateUrl: 'templates/mapa_menu.html',
@@ -64,6 +73,27 @@ angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.servic
     url : '/paquetes',
     templateUrl: 'templates/paquetes.html',
     controller: 'PaquetesCtrl'
+      
+  })
+
+  .state('confirma_pago', {
+    url : '/confirma_pago',
+    templateUrl: 'templates/confirma_pago.html',
+    controller: 'ConfirmaPagoCtrl'
+      
+  })
+
+  .state('rating', {
+    url : '/rating',
+    templateUrl: 'templates/rating.html',
+    controller: 'RatingCtrl'
+      
+  })
+
+  .state('comentarios', {
+    url : '/comentarios',
+    templateUrl: 'templates/comentarios.html',
+    controller: 'ComentariosCtrl'
       
   })
 
@@ -116,7 +146,9 @@ angular.module('lavadoApp', ['ionic', 'lavadoApp.controllers', 'lavadoApp.servic
     }
   });
 
+
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/inicio');
+  $urlRouterProvider.otherwise('/login');
 
 });

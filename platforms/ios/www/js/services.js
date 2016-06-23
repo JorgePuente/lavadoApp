@@ -1,5 +1,23 @@
 angular.module('lavadoApp.services', [])
 
+.filter('capitalize', function() {
+    return function(input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+})
+
+.factory('Pago', function(){
+
+    var Pago = {};
+    Pago.a_pagar = [];
+    Pago.tipo_compra = '';
+    Pago.direccion = {};
+    Pago.venta_id = '';
+    Pago.reload = false;
+
+    return Pago;
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
